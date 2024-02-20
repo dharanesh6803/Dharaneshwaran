@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> simple calculator</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: greenyellow;
+                font-family: bold;
+                outline: none;
+            }
+            h1{
+                color: aqua;
+                text-align: center;
+                font-size: 400%;
+            }
+            .container{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .calculator{
+                background-color: deepskyblue;
+                padding: 15px;
+                border-radius: 30px;
+                box-shadow: inset 5px 5px 12px deepskyblue,
+                                  5px 5px 12px rgba(0,0,0,.16);
+                display: grid;
+                grid-template-columns: repeat(4,68px);
+            }
+            input{
+                grid-column: span 4;
+                height: 70px;
+                width: 260px;
+                background-color: deeppink;
+                box-shadow: insert -5px -5px 12px deeppink
+                            insert 5px 5px 12px rgba(0,0,0,.16);
+                border: none;
+                border-radius: 30px;
+                color: rgb(70, 70, 70);
+                font-size: 50px;
+                text-align: end;
+                margin: auto;
+                margin-top: 40px;
+                margin-bottom: 30px;
+                padding: 20px;
+            }
+            button{
+                background-color: skyblue;
+                height: 48px;
+                width: 48px;
+                box-shadow:insert -5px -5px 12px deepskyblue
+                                    5px 5px 12px rgba(0,0,0,.16);
+                border: none;
+                border-radius: 50%;
+                margin: 8px;
+                font-size: 16px;
+            }
+            .equal{
+                width: 115px;
+                border-radius: 40px;
+                background-color: skyblue;
+                box-shadow:insert -5px -5px 12px deepskyblue
+                                    5px 5px 12px rgba(0,0,0,.16);
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Calculator </h1>
+        <div class="container">
+            <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen">
+            <button onclick="clear()">cl</button>
+            <button onclick="Delete()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="Calculate()" class="equal">=</button>
+        </div>
+    </div>
+    <script>
+        let outputScreen= document.getElementById("output-screen");
+        function display(num){
+            outputScreen.value += num;
+        }
+        function Calculate()
+        {
+            try{
+                outputScreen.value=eval(outputScreen.value);
+            }
+            catch(err)
+            {
+                alert("Invalid")
+            }
+        }
+        function Clear()
+        {
+            outputScreen.value=" ";
+        }
+        function Del()
+        {
+            outputScreen.value=outputScreen.value.slice(0,-1)
+        }
+    </script>
+    </body>
+</html>
